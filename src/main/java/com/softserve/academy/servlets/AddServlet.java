@@ -28,5 +28,7 @@ public class AddServlet extends HttpServlet {
         GuideEntity guide = new GuideEntity(name, password);
       GuideDaoImpl model = new GuideDaoImpl();
         model.saveGuide(guide);
+        req.setAttribute("userName", name);
+        doGet(req, resp);
     }
 }

@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="static java.lang.System.out" %><%--<%@ page contentType="index/html;charset=UTF-8" language="java" %>--%>
 <html>
 <head>
     <title>Add new user</title>
