@@ -25,4 +25,15 @@
     <servlet-name>list</servlet-name>
     <url-pattern>/list</url-pattern>
   </servlet-mapping>
+
+  <!-- delete servlet -->
+  <servlet>
+    <servlet-name>delete</servlet-name>
+    <servlet-class>com.softserve.academy.servlets.DeleteServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>delete</servlet-name>
+    <url-pattern>/delete</url-pattern>
+  </servlet-mapping>
 </web-app>

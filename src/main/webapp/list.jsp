@@ -25,7 +25,7 @@
             if (names != null && !names.isEmpty()) {
                 out.println("<ul class=\"w3-ul\">");
                 for (GuideEntity s : names) {
-                    out.println("<li class=\"w3-hover-sand\">" + s.getFirstname() + "</li>");
+                    out.println("<li class=\"w3-hover-sand\">" + s.getFirstname()+" "+s.getLastname() + "</li>");
                 }
                 out.println("</ul>");
 

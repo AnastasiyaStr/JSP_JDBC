@@ -67,6 +67,25 @@ public class GuideDaoImpl implements GuideDao {
 
     @Override
     public int deleteGuide(int id_guide) {
+        System.out.println("===================Delete Guide====================");
+        try (
+
+                PreparedStatement deleteGuide = Database.getInstance()
+                        .getConnection()
+                        .prepareStatement(" DELETE FROM guide\n" +
+                                "WHERE id_guide = ?;")
+        ) {
+
+            deleteGuide.setInt(1, id_guide);
+            int rowsAffected = deleteGuide.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Successfully deleted " + rowsAffected + " row");
+            } else {
+                System.out.println("Nothing was deleted");
+            }
+        } catch (SQLException e) {
+            System.out.println("Database fail");
+        }
         return 0;
     }
 }
