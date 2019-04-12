@@ -1,4 +1,5 @@
 <%@ page import="java.util.List" %>
+<%@ page import="com.softserve.academy.entity.GuideEntity" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -17,12 +18,12 @@
             <h2>Users</h2>
         </div>
         <%
-            List<String> names = (List<String>) request.getAttribute("userNames");
+            List<GuideEntity> names = (List<GuideEntity>) request.getAttribute("userNames");
 
             if (names != null && !names.isEmpty()) {
                 out.println("<ul class=\"w3-ul\">");
-                for (String s : names) {
-                    out.println("<li class=\"w3-hover-sand\">" + s + "</li>");
+                for (GuideEntity s : names) {
+                    out.println("<li class=\"w3-hover-sand\">" + s.getFirstname() + "</li>");
                 }
                 out.println("</ul>");
 

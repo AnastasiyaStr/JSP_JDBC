@@ -36,4 +36,5 @@ public class GuideEntity {
         this.firstname = firstname;
         this.lastname = lastname;
     }
+
 }
