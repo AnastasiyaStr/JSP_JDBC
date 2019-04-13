@@ -48,7 +48,7 @@ public class GuideDaoImpl implements GuideDao {
 
             while (rs.next()) {
 
-                GuideEntity guideEntity = new GuideEntity(rs.getString("firstname"), rs.getString("lastname"));
+                GuideEntity guideEntity = new GuideEntity(rs.getInt("id_guide"),rs.getString("firstname"), rs.getString("lastname"));
                              guides.add(guideEntity);
 
             }
@@ -62,8 +62,30 @@ public class GuideDaoImpl implements GuideDao {
 
     @Override
     public int updateGuide(GuideEntity guide) {
+        try (PreparedStatement updateGuide = Database.getInstance()
+                .getConnection()
+                .prepareStatement("UPDATE guide SET id_position = ?, firstname = ?, lastname = ?  WHERE id_guide=?")
+        ) {
+            System.out.println("===================UPDATE GUIDE====================");
 
-        return 0;
+            updateGuide.setInt(1, 2);
+            updateGuide.setString(2, guide.getFirstname());
+            updateGuide.setString(3, guide.getLastname());
+            updateGuide.setInt(4, guide.getId());
+            System.out.println("Successfully updated guide: " + guide.getFirstname() + " " + guide.getLastname());
+            int rowsAffected = updateGuide.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Successfully updated " + rowsAffected + " row");
+                return 1;
+            } else {
+                System.out.println("Nothing was updated");
+                return 0;
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Database fail");
+            return 0;
+        }
     }
 
     @Override

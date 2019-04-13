@@ -37,4 +37,9 @@ public class GuideEntity {
         this.lastname = lastname;
     }
 
+    public GuideEntity(int id, String firstname, String lastname) {
+        this.id = id;
+        this.firstname = firstname;
+        this.lastname = lastname;
+    }
 }
