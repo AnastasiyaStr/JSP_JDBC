@@ -62,6 +62,7 @@ public class GuideDaoImpl implements GuideDao {
 
     @Override
     public int updateGuide(GuideEntity guide) {
+
         return 0;
     }
 
@@ -80,12 +81,17 @@ public class GuideDaoImpl implements GuideDao {
             int rowsAffected = deleteGuide.executeUpdate();
             if (rowsAffected > 0) {
                 System.out.println("Successfully deleted " + rowsAffected + " row");
+            return 1;
             } else {
                 System.out.println("Nothing was deleted");
+                return 0;
+
             }
         } catch (SQLException e) {
             System.out.println("Database fail");
+            return 0;
+
         }
-        return 0;
+
     }
 }
